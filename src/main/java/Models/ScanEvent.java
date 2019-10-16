@@ -22,18 +22,39 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * ScanPoint
+ * ScanEvent
  */
 
 
-public class ScanPoint {
+public class ScanEvent {
+  @SerializedName("eventId")
+  private Integer eventId = null;
+
   @SerializedName("scanPointId")
   private Integer scanPointId = null;
 
-  @SerializedName("name")
-  private String name = null;
+  @SerializedName("testMode")
+  private Boolean testMode = null;
 
-  public ScanPoint scanPointId(Integer scanPointId) {
+  public ScanEvent eventId(Integer eventId) {
+    this.eventId = eventId;
+    return this;
+  }
+
+   /**
+   * The event ID
+   * @return eventId
+  **/
+  @Schema(description = "The event ID")
+  public Integer getEventId() {
+    return eventId;
+  }
+
+  public void setEventId(Integer eventId) {
+    this.eventId = eventId;
+  }
+
+  public ScanEvent scanPointId(Integer scanPointId) {
     this.scanPointId = scanPointId;
     return this;
   }
@@ -51,22 +72,22 @@ public class ScanPoint {
     this.scanPointId = scanPointId;
   }
 
-  public ScanPoint name(String name) {
-    this.name = name;
+  public ScanEvent testMode(Boolean testMode) {
+    this.testMode = testMode;
     return this;
   }
 
    /**
-   * The Scan Point name
-   * @return name
+   * True indicates testMode, validate testMode tickets
+   * @return testMode
   **/
-  @Schema(description = "The Scan Point name")
-  public String getName() {
-    return name;
+  @Schema(description = "True indicates testMode, validate testMode tickets")
+  public Boolean isTestMode() {
+    return testMode;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setTestMode(Boolean testMode) {
+    this.testMode = testMode;
   }
 
 
@@ -78,24 +99,26 @@ public class ScanPoint {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScanPoint scanPoint = (ScanPoint) o;
-    return Objects.equals(this.scanPointId, scanPoint.scanPointId) &&
-        Objects.equals(this.name, scanPoint.name);
+    ScanEvent scanEvent = (ScanEvent) o;
+    return Objects.equals(this.eventId, scanEvent.eventId) &&
+        Objects.equals(this.scanPointId, scanEvent.scanPointId) &&
+        Objects.equals(this.testMode, scanEvent.testMode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scanPointId, name);
+    return Objects.hash(eventId, scanPointId, testMode);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScanPoint {\n");
+    sb.append("class ScanEvent {\n");
     
+    sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
     sb.append("    scanPointId: ").append(toIndentedString(scanPointId)).append("\n");
-    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    testMode: ").append(toIndentedString(testMode)).append("\n");
     sb.append("}");
     return sb.toString();
   }

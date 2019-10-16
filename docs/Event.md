@@ -7,3 +7,4 @@ Name | Type | Description | Notes
 **name** | **String** | The event name |  [optional]
 **status** | **String** | live | offline | completed |  [optional]
 **_client** | [**Client**](Client.md) |  |  [optional]
+**_scanPoints** | [**List&lt;ScanPoint&gt;**](ScanPoint.md) | Array of ScanPoint |  [optional]

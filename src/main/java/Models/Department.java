@@ -22,51 +22,72 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * ScanPoint
+ * Department
  */
 
 
-public class ScanPoint {
-  @SerializedName("scanPointId")
-  private Integer scanPointId = null;
+public class Department {
+  @SerializedName("departmentId")
+  private Integer departmentId = null;
 
   @SerializedName("name")
   private String name = null;
 
-  public ScanPoint scanPointId(Integer scanPointId) {
-    this.scanPointId = scanPointId;
+  @SerializedName("color")
+  private String color = null;
+
+  public Department departmentId(Integer departmentId) {
+    this.departmentId = departmentId;
     return this;
   }
 
    /**
-   * The Scan Point ID
-   * @return scanPointId
+   * The department ID
+   * @return departmentId
   **/
-  @Schema(description = "The Scan Point ID")
-  public Integer getScanPointId() {
-    return scanPointId;
+  @Schema(description = "The department ID")
+  public Integer getDepartmentId() {
+    return departmentId;
   }
 
-  public void setScanPointId(Integer scanPointId) {
-    this.scanPointId = scanPointId;
+  public void setDepartmentId(Integer departmentId) {
+    this.departmentId = departmentId;
   }
 
-  public ScanPoint name(String name) {
+  public Department name(String name) {
     this.name = name;
     return this;
   }
 
    /**
-   * The Scan Point name
+   * Name of the department
    * @return name
   **/
-  @Schema(description = "The Scan Point name")
+  @Schema(description = "Name of the department")
   public String getName() {
     return name;
   }
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public Department color(String color) {
+    this.color = color;
+    return this;
+  }
+
+   /**
+   * Hex color assigned to department for display
+   * @return color
+  **/
+  @Schema(description = "Hex color assigned to department for display")
+  public String getColor() {
+    return color;
+  }
+
+  public void setColor(String color) {
+    this.color = color;
   }
 
 
@@ -78,24 +99,26 @@ public class ScanPoint {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    ScanPoint scanPoint = (ScanPoint) o;
-    return Objects.equals(this.scanPointId, scanPoint.scanPointId) &&
-        Objects.equals(this.name, scanPoint.name);
+    Department department = (Department) o;
+    return Objects.equals(this.departmentId, department.departmentId) &&
+        Objects.equals(this.name, department.name) &&
+        Objects.equals(this.color, department.color);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(scanPointId, name);
+    return Objects.hash(departmentId, name, color);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class ScanPoint {\n");
+    sb.append("class Department {\n");
     
-    sb.append("    scanPointId: ").append(toIndentedString(scanPointId)).append("\n");
+    sb.append("    departmentId: ").append(toIndentedString(departmentId)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    color: ").append(toIndentedString(color)).append("\n");
     sb.append("}");
     return sb.toString();
   }

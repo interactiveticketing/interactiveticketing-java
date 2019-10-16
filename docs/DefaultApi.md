@@ -1,21 +1,22 @@
 # DefaultApi
 
-All URIs are relative to *https://secure.interactiveticketing.com/developers/api/v1*
+All URIs are relative to *https://secure.interactiveticketing.com/developers/api/v2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**eventsEventIdGet**](DefaultApi.md#eventsEventIdGet) | **GET** /events/{eventId} | Single Event
-[**eventsEventIdOrdersGet**](DefaultApi.md#eventsEventIdOrdersGet) | **GET** /events/{eventId}/orders | Search Orders
-[**eventsEventIdOrdersOrderIdGet**](DefaultApi.md#eventsEventIdOrdersOrderIdGet) | **GET** /events/{eventId}/orders/{orderId} | Single Order
-[**eventsGet**](DefaultApi.md#eventsGet) | **GET** /events | All Events
+[**eventsEventIdGet**](DefaultApi.md#eventsEventIdGet) | **GET** /events/{eventId} | Fetch Event by ID
+[**eventsEventIdOrdersGet**](DefaultApi.md#eventsEventIdOrdersGet) | **GET** /events/{eventId}/orders | Query Orders
+[**eventsEventIdOrdersOrderIdGet**](DefaultApi.md#eventsEventIdOrdersOrderIdGet) | **GET** /events/{eventId}/orders/{orderId} | Fetch Order by ID
+[**eventsGet**](DefaultApi.md#eventsGet) | **GET** /events | List All Events
+[**scanPost**](DefaultApi.md#scanPost) | **POST** /scan | Scan Ticket
 
 <a name="eventsEventIdGet"></a>
 # **eventsEventIdGet**
 > Event eventsEventIdGet(eventId)
 
-Single Event
+Fetch Event by ID
 
-Get single event with &#x60;eventId&#x60;
+Get single event with &#x60;eventId&#x60;.
 
 ### Example
 ```java
@@ -58,7 +59,9 @@ No authorization required
 # **eventsEventIdOrdersGet**
 > PaginatedOrders eventsEventIdOrdersGet(eventId, fromOrderId, start, limit, testMode, orderType)
 
-Search Orders
+Query Orders
+
+Returns paginated list of orders from the event. The &#x60;orderId&#x60; is not unique across all events. Use &#x60;fromOrderId&#x60; parameter to loop through orders if you are pulling down all data.
 
 ### Example
 ```java
@@ -111,7 +114,9 @@ No authorization required
 # **eventsEventIdOrdersOrderIdGet**
 > Order eventsEventIdOrdersOrderIdGet(eventId, orderId)
 
-Single Order
+Fetch Order by ID
+
+Get single order with &#x60;eventId&#x60; and &#x60;orderId&#x60;.
 
 ### Example
 ```java
@@ -156,9 +161,9 @@ No authorization required
 # **eventsGet**
 > List&lt;Event&gt; eventsGet()
 
-All Events
+List All Events
 
-Get list of all events with their &#x60;eventId&#x60; for your user key
+Get list of all your events with their &#x60;eventId&#x60;.
 
 ### Example
 ```java
@@ -191,5 +196,50 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+<a name="scanPost"></a>
+# **scanPost**
+> ScanResponse scanPost(body)
+
+Scan Ticket
+
+Scan a ticket or third party barcode.
+
+### Example
+```java
+// Import classes:
+//import InteractiveTicketing.ApiException;
+//import Api.DefaultApi;
+
+
+DefaultApi apiInstance = new DefaultApi();
+ScanRequest body = new ScanRequest(); // ScanRequest | List of user object
+try {
+    ScanResponse result = apiInstance.scanPost(body);
+    System.out.println(result);
+} catch (ApiException e) {
+    System.err.println("Exception when calling DefaultApi#scanPost");
+    e.printStackTrace();
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**ScanRequest**](ScanRequest.md)| List of user object |
+
+### Return type
+
+[**ScanResponse**](ScanResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 

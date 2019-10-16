@@ -22,51 +22,51 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import java.io.IOException;
 /**
- * Client
+ * ThirdPartyTicket
  */
 
 
-public class Client {
-  @SerializedName("clientId")
-  private Integer clientId = null;
+public class ThirdPartyTicket {
+  @SerializedName("name")
+  private String name = null;
 
-  @SerializedName("title")
-  private String title = null;
+  @SerializedName("price")
+  private String price = null;
 
-  public Client clientId(Integer clientId) {
-    this.clientId = clientId;
+  public ThirdPartyTicket name(String name) {
+    this.name = name;
     return this;
   }
 
    /**
-   * The organization ID
-   * @return clientId
+   * Name of ticket
+   * @return name
   **/
-  @Schema(description = "The organization ID")
-  public Integer getClientId() {
-    return clientId;
+  @Schema(description = "Name of ticket")
+  public String getName() {
+    return name;
   }
 
-  public void setClientId(Integer clientId) {
-    this.clientId = clientId;
+  public void setName(String name) {
+    this.name = name;
   }
 
-  public Client title(String title) {
-    this.title = title;
+  public ThirdPartyTicket price(String price) {
+    this.price = price;
     return this;
   }
 
    /**
-   * The organization name
-   * @return title
+   * Purchase price for the ticket
+   * @return price
   **/
-  @Schema(description = "The organization name")
-  public String getTitle() {
-    return title;
+  @Schema(description = "Purchase price for the ticket")
+  public String getPrice() {
+    return price;
   }
 
-  public void setTitle(String title) {
-    this.title = title;
+  public void setPrice(String price) {
+    this.price = price;
   }
 
 
@@ -78,24 +78,24 @@ public class Client {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Client client = (Client) o;
-    return Objects.equals(this.clientId, client.clientId) &&
-        Objects.equals(this.title, client.title);
+    ThirdPartyTicket thirdPartyTicket = (ThirdPartyTicket) o;
+    return Objects.equals(this.name, thirdPartyTicket.name) &&
+        Objects.equals(this.price, thirdPartyTicket.price);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(clientId, title);
+    return Objects.hash(name, price);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Client {\n");
+    sb.append("class ThirdPartyTicket {\n");
     
-    sb.append("    clientId: ").append(toIndentedString(clientId)).append("\n");
-    sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    name: ").append(toIndentedString(name)).append("\n");
+    sb.append("    price: ").append(toIndentedString(price)).append("\n");
     sb.append("}");
     return sb.toString();
   }

@@ -14,7 +14,7 @@ package Models;
 
 import java.util.Objects;
 import java.util.Arrays;
-import Models.Order;
+import Models.CartEmail;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -25,13 +25,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 /**
- * PaginatedOrders
+ * PaginatedCartEmails
  */
 
 
-public class PaginatedOrders {
+public class PaginatedCartEmails {
   @SerializedName("results")
-  private List<Order> results = null;
+  private List<CartEmail> results = null;
 
   @SerializedName("start")
   private Integer start = null;
@@ -48,33 +48,33 @@ public class PaginatedOrders {
   @SerializedName("total")
   private Integer total = null;
 
-  public PaginatedOrders results(List<Order> results) {
+  public PaginatedCartEmails results(List<CartEmail> results) {
     this.results = results;
     return this;
   }
 
-  public PaginatedOrders addResultsItem(Order resultsItem) {
+  public PaginatedCartEmails addResultsItem(CartEmail resultsItem) {
     if (this.results == null) {
-      this.results = new ArrayList<Order>();
+      this.results = new ArrayList<CartEmail>();
     }
     this.results.add(resultsItem);
     return this;
   }
 
    /**
-   * Page of orders
+   * Page of cartEmails
    * @return results
   **/
-  @Schema(description = "Page of orders")
-  public List<Order> getResults() {
+  @Schema(description = "Page of cartEmails")
+  public List<CartEmail> getResults() {
     return results;
   }
 
-  public void setResults(List<Order> results) {
+  public void setResults(List<CartEmail> results) {
     this.results = results;
   }
 
-  public PaginatedOrders start(Integer start) {
+  public PaginatedCartEmails start(Integer start) {
     this.start = start;
     return this;
   }
@@ -92,7 +92,7 @@ public class PaginatedOrders {
     this.start = start;
   }
 
-  public PaginatedOrders limit(Integer limit) {
+  public PaginatedCartEmails limit(Integer limit) {
     this.limit = limit;
     return this;
   }
@@ -110,7 +110,7 @@ public class PaginatedOrders {
     this.limit = limit;
   }
 
-  public PaginatedOrders limitMax(Integer limitMax) {
+  public PaginatedCartEmails limitMax(Integer limitMax) {
     this.limitMax = limitMax;
     return this;
   }
@@ -128,7 +128,7 @@ public class PaginatedOrders {
     this.limitMax = limitMax;
   }
 
-  public PaginatedOrders length(Integer length) {
+  public PaginatedCartEmails length(Integer length) {
     this.length = length;
     return this;
   }
@@ -146,7 +146,7 @@ public class PaginatedOrders {
     this.length = length;
   }
 
-  public PaginatedOrders total(Integer total) {
+  public PaginatedCartEmails total(Integer total) {
     this.total = total;
     return this;
   }
@@ -173,13 +173,13 @@ public class PaginatedOrders {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    PaginatedOrders paginatedOrders = (PaginatedOrders) o;
-    return Objects.equals(this.results, paginatedOrders.results) &&
-        Objects.equals(this.start, paginatedOrders.start) &&
-        Objects.equals(this.limit, paginatedOrders.limit) &&
-        Objects.equals(this.limitMax, paginatedOrders.limitMax) &&
-        Objects.equals(this.length, paginatedOrders.length) &&
-        Objects.equals(this.total, paginatedOrders.total);
+    PaginatedCartEmails paginatedCartEmails = (PaginatedCartEmails) o;
+    return Objects.equals(this.results, paginatedCartEmails.results) &&
+        Objects.equals(this.start, paginatedCartEmails.start) &&
+        Objects.equals(this.limit, paginatedCartEmails.limit) &&
+        Objects.equals(this.limitMax, paginatedCartEmails.limitMax) &&
+        Objects.equals(this.length, paginatedCartEmails.length) &&
+        Objects.equals(this.total, paginatedCartEmails.total);
   }
 
   @Override
@@ -191,7 +191,7 @@ public class PaginatedOrders {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class PaginatedOrders {\n");
+    sb.append("class PaginatedCartEmails {\n");
     
     sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("    start: ").append(toIndentedString(start)).append("\n");

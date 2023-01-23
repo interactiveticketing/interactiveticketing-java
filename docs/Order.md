@@ -32,3 +32,6 @@ Name | Type | Description | Notes
 **_transactions** | [**List&lt;Transaction&gt;**](Transaction.md) | Array of payment/refund transactions |  [optional]
 **_tickets** | [**List&lt;Ticket&gt;**](Ticket.md) | Array of tickets ordered |  [optional]
 **_posCashierName** | **String** | Applicable to pos orders |  [optional]
+**_suspectFlags** | [**List&lt;SuspectFlag&gt;**](SuspectFlag.md) | Array of reasons the order is flagged as suspicious |  [optional]
+**_isSuspicious** | **Boolean** | True indicates if order is flagged as suspicious |  [optional]
+**_suspiciousResolved** | **Boolean** | True indicates if a suspicous order was approved in the dashboard |  [optional]
